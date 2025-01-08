@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int difficulte, nombreEssaie, tailleSequence ,chiffre ,essaie = 1;
+        int difficulte, nombreEssaie, tailleSequence ,chiffre , essai = 1;
         ArrayList<Integer> sequenceSecrete = new ArrayList<Integer>();
         ArrayList<Integer> sequenceJoueur = new ArrayList<Integer>();
         ArrayList<String> historique = new ArrayList<String>();
@@ -20,10 +20,10 @@ public class Main {
             }else {
                 tailleSequence = 5;
             }
-            System.out.println("Voulez vous changer le nombre d'essaie ? (Oui ou Non)");
+            System.out.println("Voulez vous changer le nombre d'essai ? (Oui ou Non)");
             verif = clavier.nextLine().toUpperCase();
             if (verif.equals("OUI")){
-                System.out.println("Quelle taille voulez vous ?");
+                System.out.println("Quel nombre voulez vous ?");
                 nombreEssaie = nombreInt();
             }else {
                 nombreEssaie = 12;
@@ -39,7 +39,7 @@ public class Main {
             sequenceSecrete = randomSequence(tailleSequence, difficulte);
             historique.add("Séquence à trouver durant cette partie : "+ sequenceSecrete);
             do{
-                System.out.println(essaie+" essai");
+                System.out.println(essai+" essai");
                 System.out.println("Quelle séquence de chiffre de 1 à 9, allez vous tester ? (Selon votre difficulté, il ne peut pas avoir de doublon dans les chiffres donc faites attention");
                 for (int i = 0; i < tailleSequence; i++) {
                     System.out.print(i+1 + " chiffre : ");
@@ -60,10 +60,10 @@ public class Main {
                         sequenceJoueur.add(nombreInt());
                     }
                 }
-                historique.add("Essai n°"+essaie+ ": " + sequenceJoueur);
+                historique.add("Essai n°"+essai+ ": " + sequenceJoueur);
                 System.out.println("Ok, vérification !");
                 if (difficulte == 1 || difficulte == 3){
-                    essaie++;
+                    essai++;
                     for (int i = 0; i < tailleSequence; i++) {
                         if (sequenceJoueur.equals(sequenceSecrete)){
                             System.out.println("Bravo c'est gagné");
@@ -80,7 +80,7 @@ public class Main {
                         }
                     }
                 }else {
-                    essaie++;
+                    essai++;
                     int nbBonnePlace = 0;
                     for (int i = 0; i < tailleSequence; i++) {
                         if (sequenceJoueur.equals(sequenceSecrete)){
@@ -95,7 +95,7 @@ public class Main {
                         System.out.println(nbBonnePlace + " chiffre(s) à la bonne place et "+ (tailleSequence-nbBonnePlace)+" pas à la bonne place");
                     }
                 }
-                if (essaie > nombreEssaie){
+                if (essai > nombreEssaie){
                     System.out.println("Vous avez perdu !\n");
                     finDePartie = true;
                 }
@@ -105,6 +105,7 @@ public class Main {
             for (String i : historique){
                 System.out.println(i);
             }
+            historique.clear();
             System.out.println("Voulez vous continuer à jouer ? ( oui ou non )");
             verif = clavier.nextLine().toUpperCase();
         }while(verif.equals("OUI"));
