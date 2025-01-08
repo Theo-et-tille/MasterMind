@@ -7,6 +7,7 @@ public class Main {
         int difficulte, nombreEssaie, tailleSequence ,chiffre ,essaie = 1;
         ArrayList<Integer> sequenceSecrete = new ArrayList<Integer>();
         ArrayList<Integer> sequenceJoueur = new ArrayList<Integer>();
+        ArrayList<String> historique = new ArrayList<String>();
         String verif;
         boolean finDePartie = false;
         Scanner clavier = new Scanner(System.in);
@@ -36,6 +37,7 @@ public class Main {
                 }
             }while(difficulte>4 || difficulte<1);
             sequenceSecrete = randomSequence(tailleSequence, difficulte);
+            historique.add("Séquence à trouver durant cette partie : "+ sequenceSecrete);
             do{
                 System.out.println(essaie+" essai");
                 System.out.println("Quelle séquence de chiffre de 1 à 9, allez vous tester ? (Selon votre difficulté, il ne peut pas avoir de doublon dans les chiffres donc faites attention");
@@ -58,6 +60,7 @@ public class Main {
                         sequenceJoueur.add(nombreInt());
                     }
                 }
+                historique.add("Essai n°"+essaie+ ": " + sequenceJoueur);
                 System.out.println("Ok, vérification !");
                 if (difficulte == 1 || difficulte == 3){
                     essaie++;
@@ -93,12 +96,15 @@ public class Main {
                     }
                 }
                 if (essaie > nombreEssaie){
-                    System.out.println("Vous avez perdu !");
+                    System.out.println("Vous avez perdu !\n");
                     finDePartie = true;
                 }
                 sequenceJoueur.clear();
             }while(!finDePartie);
             sequenceSecrete.clear();
+            for (String i : historique){
+                System.out.println(i);
+            }
             System.out.println("Voulez vous continuer à jouer ? ( oui ou non )");
             verif = clavier.nextLine().toUpperCase();
         }while(verif.equals("OUI"));
