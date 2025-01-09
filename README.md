@@ -6,3 +6,13 @@ Changement comparer au vrai jeu :
 - Plusieurs difficultés
 
 Et en plus il y a un magnifique historique de la partie qui vient de se finir
+
+Comment y jouer ?
+
+1- Lancer le projet sur un IDE.
+2- Lancer le main.
+3- Suivre ce que dit le terminal.
+FIN
+
+Logique de programation :
+  Je suis fatigué il est presque 1h30
