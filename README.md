@@ -9,10 +9,12 @@ Et en plus il y a un magnifique historique de la partie qui vient de se finir
 
 Comment y jouer ?
 
-1- Lancer le projet sur un IDE.
-2- Lancer le main.
-3- Suivre ce que dit le terminal.
-FIN
+- Lancer le projet sur un IDE.
+- Lancer le main.
+- Suivre ce que dit le terminal.
+- FIN
+
+Si vous ne changez pas le nombre d'essai et la taille de la séquence à trouver, ils seront respectivement à 12 et à 5 d'origine.
 
 Logique de programation :
   Je suis fatigué il est presque 1h30
